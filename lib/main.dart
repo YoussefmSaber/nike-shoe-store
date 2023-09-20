@@ -1,9 +1,6 @@
-import 'dart:async';
-
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nike_shoe_store/widgets/navigationbar/components.dart';
 
 void main() => runApp(MyApp());
@@ -31,11 +28,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   var _bottomNavIndex = 0; //default index of a first screen
 
-  final iconList = <IconData>[
-    Icons.brightness_5,
-    Icons.brightness_4,
-    Icons.brightness_6,
-    Icons.brightness_7,
+  final iconList = [
+    'assets/svgs/home.svg',
+    'assets/svgs/favorite.svg',
+    'assets/svgs/notification.svg',
+    'assets/svgs/profile.svg',
   ];
 
   @override
@@ -44,12 +41,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       child: Scaffold(
         body: Text("asdasd"),
         floatingActionButton: FloatingActionButton(
-          child: const Icon(
-            Icons.brightness_3,
-            color: Colors.grey,
-          ),
-          onPressed: () {},
-        ),
+            onPressed: () {},
+            child: SvgPicture.asset(
+              'assets/svgs/cart.svg',
+            )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: animatedBottomNavigation(
           iconList,

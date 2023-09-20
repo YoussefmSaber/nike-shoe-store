@@ -1,16 +1,19 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 AnimatedBottomNavigationBar animatedBottomNavigation(
-    List<IconData> iconList, int bottomNavIndex, Function(int) changeTab) {
+    List<String> iconList, int bottomNavIndex, Function(int) changeTab) {
   return AnimatedBottomNavigationBar.builder(
     itemCount: iconList.length,
     tabBuilder: (int index, bool isActive) {
       final color = isActive ? Colors.orange : Colors.grey;
-      return Icon(
-        iconList[index],
-        size: 24,
-        color: color,
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SvgPicture.asset(
+          iconList[index],
+          color: color,
+        ),
       );
     },
     backgroundColor: Colors.white,
