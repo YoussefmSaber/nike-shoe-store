@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:nike_shoe_store/config/theme/colors.dart';
+import 'package:nike_shoe_store/config/theme/text_style.dart';
 
 Widget defaultProductItem() => Container(
       height: 300,
@@ -25,44 +25,26 @@ Widget defaultProductItem() => Container(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset("assets/images/shoe-item.png"),
-                  Text(
+                  const Text(
                     "BEST SELLER",
                     textAlign: TextAlign.start,
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        color: primaryColor,
-                      ),
-                    ),
+                    style: productStateStyle,
                   ),
                   const SizedBox(
                     height: 2,
                   ),
-                  Text(
+                  const Text(
                     "Nike Jordan",
                     textAlign: TextAlign.start,
-                    style: GoogleFonts.raleway(
-                      textStyle: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: hintColor,
-                      ),
-                    ),
+                    style: productNameStyle,
                   ),
                   const SizedBox(
                     height: 12,
                   ),
-                  Text(
+                  const Text(
                     "\$302.00",
                     textAlign: TextAlign.start,
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: textColor,
-                      ),
-                    ),
+                    style: productPriceStyle,
                   ),
                 ],
               ),
