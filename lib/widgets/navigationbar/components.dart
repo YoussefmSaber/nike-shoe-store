@@ -1,13 +1,14 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nike_shoe_store/config/theme/colors.dart';
 
 AnimatedBottomNavigationBar animatedBottomNavigation(
     List<String> iconList, int bottomNavIndex, Function(int) changeTab) {
   return AnimatedBottomNavigationBar.builder(
     itemCount: iconList.length,
     tabBuilder: (int index, bool isActive) {
-      final color = isActive ? Colors.orange : Colors.grey;
+      final color = isActive ? primaryColor : textColor2;
       return Padding(
         padding: const EdgeInsets.all(16.0),
         child: SvgPicture.asset(
@@ -18,7 +19,7 @@ AnimatedBottomNavigationBar animatedBottomNavigation(
     },
     backgroundColor: Colors.white,
     activeIndex: bottomNavIndex,
-    splashColor: Colors.orange,
+    splashColor: primaryColor,
     splashSpeedInMilliseconds: 200,
     notchSmoothness: NotchSmoothness.defaultEdge,
     gapLocation: GapLocation.center,
@@ -27,8 +28,8 @@ AnimatedBottomNavigationBar animatedBottomNavigation(
     onTap: changeTab,
     shadow: BoxShadow(
       offset: const Offset(0, 1),
-      blurRadius: 12,
-      spreadRadius: 0.5,
+      blurRadius: 10,
+      spreadRadius: 10,
       color: Colors.black.withOpacity(0.12),
     ),
   );

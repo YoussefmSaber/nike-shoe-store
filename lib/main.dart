@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nike_shoe_store/config/theme/colors.dart';
 import 'package:nike_shoe_store/widgets/navigationbar/components.dart';
 
 void main() => runApp(MyApp());
@@ -41,6 +42,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       child: Scaffold(
         body: Text("asdasd"),
         floatingActionButton: FloatingActionButton(
+            backgroundColor: primaryColor,
+            hoverColor: primaryColor,
+            splashColor: secondaryColor,
             onPressed: () {},
             child: SvgPicture.asset(
               'assets/svgs/cart.svg',
