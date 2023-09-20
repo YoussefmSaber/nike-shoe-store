@@ -65,13 +65,13 @@ const TextStyle detailsProductDetailsStyle = TextStyle(
     fontWeight: FontWeight.w400);
 
 const TextStyle homeSectionStyle = TextStyle(
-    fontSize: 16,
+    fontSize: 18,
     color: textColor,
     fontFamily: "raleway",
-    fontWeight: FontWeight.w600);
+    fontWeight: FontWeight.w500);
 
 const TextStyle homeSectionSeeAllStyle = TextStyle(
-    fontSize: 12,
+    fontSize: 14,
     color: primaryColor,
     fontFamily: "poppins",
     fontWeight: FontWeight.w500);
@@ -81,3 +81,9 @@ const TextStyle detailsProductSeeAllStyle = TextStyle(
     color: primaryColor,
     fontFamily: "poppins",
     fontWeight: FontWeight.w400);
+
+const TextStyle searchBoxStyle = TextStyle(
+    fontSize: 14,
+    color: hintColor,
+    fontFamily: "poppins",
+    fontWeight: FontWeight.w500);

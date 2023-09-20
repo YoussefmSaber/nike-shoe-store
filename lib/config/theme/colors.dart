@@ -13,3 +13,5 @@ const Color backgroundColor2 = Color(0xFFF7F7F9);
 const Color favoriteColor = Color(0xFFFf4c24);
 
 const Color errorColor = Color(0xFFFD1600);
+
+const Color offers = Color(0xFF674DC5);

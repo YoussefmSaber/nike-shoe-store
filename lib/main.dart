@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nike_shoe_store/config/theme/colors.dart';
+import 'package:nike_shoe_store/features/home/presentation/pages/home_screen.dart';
 import 'package:nike_shoe_store/widgets/navigationbar/components.dart';
 import 'package:nike_shoe_store/widgets/product/components.dart';
 
@@ -41,14 +42,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backgroundColor,
-        body: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (_, index) => defaultProductItem(),
-          separatorBuilder: (_, index) => const SizedBox(width: 10),
-          itemCount: 10,
-          physics: const BouncingScrollPhysics(),
-        ),
+        backgroundColor: backgroundColor2,
+        body: HomeScreen(),
         floatingActionButton: FloatingActionButton(
             backgroundColor: primaryColor,
             hoverColor: primaryColor,
