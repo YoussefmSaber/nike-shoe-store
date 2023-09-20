@@ -25,7 +25,22 @@ dependencies:
   supabase_flutter: ^1.10.11
   shared_preferences: ^2.2.0
   smooth_page_indicator: ^1.1.0
+  flutter_native_splash: ^2.3.2
+  flutter_launcher_icons: ^0.13.1
   conditional_builder_null_safety: ^0.0.6
+
+flutter_native_splash:
+  color: "#1483C2"
+  image: assets/images/logo-text.png
+  android: true
+  ios: true
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app-logo.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
 
 dev_dependencies:
   flutter_test:
@@ -34,6 +49,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # assets:
-  #   - assets/images/icons/
-  #   - assets/images/images/
+  assets:
+    - assets/icons/
+    - assets/images/
