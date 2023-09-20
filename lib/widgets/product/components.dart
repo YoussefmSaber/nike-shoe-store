@@ -2,20 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:nike_shoe_store/config/theme/colors.dart';
 import 'package:nike_shoe_store/config/theme/text_style.dart';
 
-Widget defaultProductItem() => Container(
-      height: 300,
-      decoration: BoxDecoration(
+Widget defaultProductItem() => Card(
+      elevation: 4,
+      shadowColor: Colors.grey.withOpacity(0.2),
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 2,
-            offset: const Offset(0, 3),
-          ),
-        ],
-        color: Colors.white,
       ),
+      surfaceTintColor: backgroundColor,
+      color: backgroundColor,
       child: IntrinsicHeight(
         child: Stack(
           children: [
@@ -51,7 +45,9 @@ Widget defaultProductItem() => Container(
             ),
             const Positioned(
               top: 12.0, // Adjust this value to position the icon as desired.
+
               left: 12.0, // Adjust this value to position the icon as desired.
+
               child: Icon(Icons.favorite),
             ),
             Positioned(

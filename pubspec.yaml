@@ -66,3 +66,7 @@ font:
         weight: 600
       - asset: assets/fonts/Raleway-Bold.ttf
         weight: 700
+  - family: futura
+    fonts:
+      - asset: assets/fonts/Futura-Bold.ttf
+        weight: 700 

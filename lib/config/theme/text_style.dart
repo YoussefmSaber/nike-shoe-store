@@ -23,13 +23,13 @@ const TextStyle productStateStyle = TextStyle(
 );
 
 const TextStyle categorySelectedStyle = TextStyle(
-    fontSize: 12,
+    fontSize: 14,
     color: backgroundColor,
     fontFamily: "poppins",
     fontWeight: FontWeight.w400);
 
 const TextStyle categoryUnselectedStyle = TextStyle(
-    fontSize: 12,
+    fontSize: 14,
     color: textColor,
     fontFamily: "poppins",
     fontWeight: FontWeight.w400);
@@ -87,3 +87,17 @@ const TextStyle searchBoxStyle = TextStyle(
     color: hintColor,
     fontFamily: "poppins",
     fontWeight: FontWeight.w500);
+
+const TextStyle saleStyle = TextStyle(
+    fontSize: 16,
+    color: textColor,
+    fontFamily: "raleway",
+    letterSpacing: -.5,
+    fontWeight: FontWeight.w400);
+
+const TextStyle saleStyle2 = TextStyle(
+    fontSize: 36,
+    color: saleColor,
+    fontFamily: "futura",
+    letterSpacing: -1.5,
+    fontWeight: FontWeight.w900);
