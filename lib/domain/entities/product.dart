@@ -9,6 +9,7 @@ class ProductEntity extends Equatable {
   final String state;
   final double currentPrice;
   final double oldPrice;
+  final String image;
 
   const ProductEntity({
     required this.id,
@@ -19,6 +20,7 @@ class ProductEntity extends Equatable {
     required this.state,
     required this.currentPrice,
     required this.oldPrice,
+    required this.image,
   });
 
   @override
@@ -32,6 +34,7 @@ class ProductEntity extends Equatable {
       state,
       currentPrice,
       oldPrice,
+      image,
     ];
   }
 }
