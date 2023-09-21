@@ -1,11 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nike_shoe_store/config/theme/colors.dart';
+import 'package:nike_shoe_store/config/api_keys.dart';
 import 'package:nike_shoe_store/features/home/presentation/pages/home_screen.dart';
 import 'package:nike_shoe_store/widgets/navigationbar/components.dart';
+import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  await Supabase.initialize(url: projectUrl, anonKey: projectAnonKey);
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
