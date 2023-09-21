@@ -1,4 +1,4 @@
-import 'package:nike_shoe_store/domain/entities/product.dart';
+import 'package:nike_shoe_store/data/models/product.dart';
 import 'package:nike_shoe_store/domain/repositories/shopping_cart_repository.dart';
 
 class ShoppingCartRepositoryImpl extends ShoppingCartRepository {
@@ -15,7 +15,7 @@ class ShoppingCartRepositoryImpl extends ShoppingCartRepository {
   }
 
   @override
-  Future<List<ProductEntity>> getProducts(String userId) {
+  Future<List<ProductModel>> getProducts(String userId) {
     // TODO: implement getProducts
     throw UnimplementedError();
   }
