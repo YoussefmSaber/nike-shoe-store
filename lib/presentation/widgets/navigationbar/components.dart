@@ -1,7 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nike_shoe_store/config/theme/colors.dart';
+import 'package:nike_shoe_store/presentation/theme/theme.dart';
 
 AnimatedBottomNavigationBar animatedBottomNavigation(
     List<String> iconList, int bottomNavIndex, Function(int) changeTab) {

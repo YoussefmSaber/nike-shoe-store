@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nike_shoe_store/config/theme/theme.dart';
+
+import 'colors.dart';
 
 const TextStyle productNameStyle = TextStyle(
   fontSize: 16,

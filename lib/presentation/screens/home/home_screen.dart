@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nike_shoe_store/features/home/presentation/widgets/components.dart';
-
+import 'package:nike_shoe_store/presentation/widgets/home/components.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
