@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nike_shoe_store/config/theme/colors.dart';
 import 'package:nike_shoe_store/features/home/presentation/pages/home_screen.dart';
 import 'package:nike_shoe_store/widgets/navigationbar/components.dart';
-import 'package:nike_shoe_store/widgets/product/components.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return SafeArea(
       child: Scaffold(
         backgroundColor: backgroundColor2,
-        body: HomeScreen(),
+        body: const HomeScreen(),
         floatingActionButton: FloatingActionButton(
             backgroundColor: primaryColor,
             hoverColor: primaryColor,
