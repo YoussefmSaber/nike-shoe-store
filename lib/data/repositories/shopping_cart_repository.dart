@@ -13,13 +13,7 @@ class ShoppingCartRepositoryImpl extends ShoppingCartRepository {
   }
 
   @override
-  void incrementProductCount(
-      {required String userId, required String productId, required int count}) {
-    _supabaseApi.updateShoeCountInCart(userId, productId, count);
-  }
-
-  @override
-  void decrementProductCount(
+  void updateProductCount(
       {required String userId, required String productId, required int count}) {
     _supabaseApi.updateShoeCountInCart(userId, productId, count);
   }
