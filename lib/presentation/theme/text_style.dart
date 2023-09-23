@@ -23,7 +23,7 @@ const TextStyle productOldPriceStyle = TextStyle(
 );
 
 const TextStyle productPriceStyle = TextStyle(
-  fontSize: 16,
+  fontSize: 14,
   color: textColor,
   fontFamily: "poppins",
   fontWeight: FontWeight.w500,

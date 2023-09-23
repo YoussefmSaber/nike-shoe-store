@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nike_shoe_store/core/routes/router.dart';
 import 'package:nike_shoe_store/presentation/screens/cart/cart_screen.dart';
 import 'package:nike_shoe_store/presentation/screens/favorite/favorite_screen.dart';
 import 'package:nike_shoe_store/presentation/screens/notification/notification_screen.dart';
@@ -22,10 +24,11 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: MyHomePage(title: 'Animated Navigation Bottom Bar'),
+      routerConfig: ApplicationRouter().router,
     );
   }
 }
@@ -52,9 +55,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   final screens = [
     const HomeScreen(),
     const FavoriteScreen(),
-    const CartScreen(),
     const NotificationScreen(),
     const ProfileScreen(),
+    const CartScreen(),
   ];
 
   @override
@@ -64,10 +67,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         backgroundColor: backgroundColor2,
         body: screens[_bottomNavIndex],
         floatingActionButton: FloatingActionButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
             backgroundColor: primaryColor,
             hoverColor: primaryColor,
             splashColor: secondaryColor,
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                _bottomNavIndex = 4;
+              });
+            },
             child: SvgPicture.asset(
               'assets/svgs/cart.svg',
             )),
@@ -75,7 +84,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         bottomNavigationBar: animatedBottomNavigation(
           iconList,
           _bottomNavIndex,
-          (index) => setState(() => _bottomNavIndex = index),
+          (index) {
+            setState(() {
+              _bottomNavIndex = index;
+            });
+          },
         ),
       ),
     );

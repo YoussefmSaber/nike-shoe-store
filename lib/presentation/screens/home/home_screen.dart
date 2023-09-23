@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nike_shoe_store/data/data_sources/supabase_datasource.dart';
+import 'package:nike_shoe_store/presentation/theme/colors.dart';
 import 'package:nike_shoe_store/presentation/widgets/home/components.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: backgroundColor2,
         body: Padding(
           padding: const EdgeInsets.only(top: 8.0, right: 8, left: 8),
           child: Column(
@@ -51,7 +53,8 @@ class HomeScreen extends StatelessWidget {
                         sectionName: "Popular Shoes", toSection: () {}),
                     // Product List Section
                     FutureBuilder(
-                        future: SupabaseApi().getSpecialShoes(state: "32541621-3ed6-4054-a54c-344f3bdb4910"),
+                        future: SupabaseApi().getSpecialShoes(
+                            state: "32541621-3ed6-4054-a54c-344f3bdb4910"),
                         builder: (_, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
@@ -68,8 +71,8 @@ class HomeScreen extends StatelessWidget {
                               child: ListView.separated(
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (_, index) => defaultProductItem(
-                                  shoeData: snapshot.data![index]
-                                ),
+                                    shoeData: snapshot.data![index],
+                                    context: context),
                                 separatorBuilder: (_, index) =>
                                     const SizedBox(width: 10),
                                 itemCount: snapshot.data!.length,
@@ -112,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                     //         );
                     //       }
                     //     }),
-                    
+
                     const SizedBox(
                       height: 10,
                     ),

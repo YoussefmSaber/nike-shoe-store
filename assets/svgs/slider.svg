@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="352px" height="68px" viewBox="0 0 352 68" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="objectBoundingBox" x1="0.50000006" y1="0.40000004" x2="0.50000006" y2="1" id="gradient_1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#2363F6" />
+    </linearGradient>
+    <path d="M-2208 -1239C-2208 -1257.78 -2129.2 -1273 -2032 -1273C-1934.8 -1273 -1856 -1257.78 -1856 -1239C-1856 -1220.22 -1934.8 -1205 -2032 -1205C-2129.2 -1205 -2208 -1220.22 -2208 -1239Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="Ellipse-5">
+    <g clip-path="url(#clip_1)">
+      <use xlink:href="#path_1" fill="none" stroke="url(#gradient_1)" stroke-width="4" />
+    </g>
+  </g>
+</svg>

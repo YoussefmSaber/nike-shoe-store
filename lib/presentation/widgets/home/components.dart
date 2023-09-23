@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nike_shoe_store/data/models/shoe_item.dart';
+import 'package:nike_shoe_store/presentation/screens/details/details_screen.dart';
 import 'package:nike_shoe_store/presentation/theme/theme.dart';
 
 // Category Item Component
@@ -10,6 +12,8 @@ Widget categoryItem() => Card(
     ),
     elevation: 4,
     shadowColor: Colors.grey.withOpacity(0.2),
+    color: backgroundColor,
+    surfaceTintColor: backgroundColor,
     child: const Center(
       child: Padding(
           padding: EdgeInsets.all(16.0),
@@ -22,9 +26,10 @@ Widget categoryItem() => Card(
 // Product Item Component
 Widget defaultProductItem({
   required ShoeItemModel shoeData,
+  context,
 }) =>
     SizedBox(
-      height: 215,
+      height: 210,
       width: 160,
       child: Card(
         elevation: 4,
@@ -36,58 +41,62 @@ Widget defaultProductItem({
         color: backgroundColor,
         child: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Transform.rotate(
-                      angle: -0.4,
-                      child: Image.network(shoeData.color.image,
-                          width: 120, height: 110)),
-                  if (shoeData.color.state != null)
+            InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () {
+                GoRouter.of(context).pushNamed("details",
+                    pathParameters: {"shoeItemId": shoeData.color.id});
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Transform.rotate(
+                        angle: -0.4,
+                        child: Image.network(shoeData.color.image,
+                            width: 120, height: 100)),
+                    if (shoeData.color.state != null)
+                      Text(
+                        shoeData.color.state!,
+                        style: productStateStyle,
+                      ),
+                    SizedBox(height: shoeData.color.state != null ? 0 : 17),
                     Text(
-                      shoeData.color.state!,
-                      style: productStateStyle,
+                      shoeData.product.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: productNameStyle,
                     ),
-                  SizedBox(height: shoeData.color.state != null ? 2 : 16),
-                  Text(
-                    shoeData.product.name,
-                    overflow: TextOverflow.ellipsis,
-                    style: productNameStyle,
-                  ),
-                  const SizedBox(
-                    height: 2,
-                  ),
-                  Text(
-                    shoeData.color.category,
-                    style: productCategoryStyle,
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      Text(
-                        "\$${shoeData.color.currentPrice}",
-                        textAlign: TextAlign.start,
-                        style: productPriceStyle,
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Text(
-                          shoeData.color.oldPrice != null
-                              ? "\$${shoeData.color.oldPrice}"
-                              : "",
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: productOldPriceStyle),
-                    ],
-                  ),
-                ],
+                    Text(
+                      shoeData.color.category,
+                      style: productCategoryStyle,
+                    ),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          "\$${shoeData.color.currentPrice}",
+                          textAlign: TextAlign.start,
+                          style: productPriceStyle,
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                            shoeData.color.oldPrice != null
+                                ? "\$${shoeData.color.oldPrice}"
+                                : "",
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            style: productOldPriceStyle),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             Positioned(
@@ -129,13 +138,13 @@ Widget appBar() => Row(
           ),
           const Center(child: Text("Explore", style: appBarTextStyle)),
           Card(
+              color: backgroundColor,
+              surfaceTintColor: backgroundColor,
               elevation: 4,
               shadowColor: Colors.grey.withOpacity(0.2),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50),
               ),
-              surfaceTintColor: backgroundColor,
-              color: backgroundColor,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: SvgPicture.asset(
@@ -155,6 +164,8 @@ Widget saleCard(context) => Padding(
               borderRadius: BorderRadius.circular(16),
             ),
             elevation: 4,
+            color: backgroundColor,
+            surfaceTintColor: backgroundColor,
             shadowColor: Colors.grey.withOpacity(0.2),
             child: const Padding(
               padding: EdgeInsets.all(16.0),
@@ -229,6 +240,8 @@ Widget searchBar() => Row(
               borderRadius: BorderRadius.circular(16),
             ),
             elevation: 4,
+            color: backgroundColor,
+            surfaceTintColor: backgroundColor,
             shadowColor: Colors.grey.withOpacity(0.2),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
