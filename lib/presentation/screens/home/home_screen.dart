@@ -9,9 +9,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SupabaseApi().getShoe("").then((value) {
-      print(value.toString());
-    });
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -56,8 +53,7 @@ class HomeScreen extends StatelessWidget {
                         sectionName: "Popular Shoes", toSection: () {}),
                     // Product List Section
                     FutureBuilder(
-                        future: SupabaseApi()
-                            .getShoe("aa4e8d15-cd93-43dc-9a50-350c23a56799"),
+                        future: SupabaseApi().getAllShoes(),
                         builder: (_, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
@@ -65,8 +61,8 @@ class HomeScreen extends StatelessWidget {
                               child: CircularProgressIndicator(),
                             );
                           } else if (snapshot.hasError) {
-                            return const Center(
-                              child: Text("Error"),
+                            return Center(
+                              child: Text("Error: ${snapshot.error}"),
                             );
                           } else {
                             return SizedBox(
@@ -74,14 +70,11 @@ class HomeScreen extends StatelessWidget {
                               child: ListView.separated(
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (_, index) => defaultProductItem(
-                                  image: snapshot.data!.color.image,
-                                  state: snapshot.data!.color.state,
-                                  name: snapshot.data!.product.name,
-                                  price: snapshot.data!.color.currentPrice,
+                                  shoeData: snapshot.data![index]
                                 ),
                                 separatorBuilder: (_, index) =>
                                     const SizedBox(width: 10),
-                                itemCount: 10,
+                                itemCount: snapshot.data!.length,
                                 physics: const BouncingScrollPhysics(),
                               ),
                             );

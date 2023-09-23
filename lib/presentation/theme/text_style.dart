@@ -9,6 +9,12 @@ const TextStyle productNameStyle = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+const TextStyle productCategoryStyle = TextStyle(
+    fontSize: 12,
+    color: textColor2,
+    fontFamily: "raleway",
+    fontWeight: FontWeight.w500);
+
 const TextStyle productPriceStyle = TextStyle(
   fontSize: 16,
   color: textColor,

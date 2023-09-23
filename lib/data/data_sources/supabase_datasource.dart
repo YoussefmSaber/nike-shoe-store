@@ -32,11 +32,29 @@ class SupabaseApi {
     return user?.email;
   }
 
-  Future<List<ProductModel>> getAllShoes() {
-    return supabase.from('shoes').select().then((value) {
-      final data = value.data as List;
-      return data.map((e) => ProductModel.fromJson(e)).toList();
+  Future<List<ShoeItemModel>> getAllShoes() async {
+    final value = await supabase.from('shoes_colors').select("*");
+    final List<ProductColorModel> productColors =
+        value.map<ProductColorModel>((json) {
+      return ProductColorModel.fromJson(json as Map<String, dynamic>);
+    }).toList();
+
+    final List<ShoeItemModel> shoeItems = [];
+
+    await Future.forEach(productColors, (productColor) async {
+      final shoeResponse = await supabase
+          .from('shoes')
+          .select()
+          .eq("id", productColor.shoeId)
+          .single(); // Assuming there is a single matching shoe
+
+      final product = ProductModel.fromJson(shoeResponse);
+
+      final shoeItem = ShoeItemModel(product: product, color: productColor);
+      shoeItems.add(shoeItem);
     });
+
+    return shoeItems;
   }
 
   Future<ShoeItemModel> getShoe(String id) {
@@ -45,7 +63,11 @@ class SupabaseApi {
       final data = value as List;
       final productColor = ProductColorModel.fromJson(data[0]);
 
-      return supabase.from('shoes').select().eq("id", productColor.shoeId).then((value) {
+      return supabase
+          .from('shoes')
+          .select()
+          .eq("id", productColor.shoeId)
+          .then((value) {
         final data = value as List;
         final product = ProductModel.fromJson(data[0]);
         return ShoeItemModel(product: product, color: productColor);

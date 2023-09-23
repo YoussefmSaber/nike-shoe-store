@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nike_shoe_store/data/models/shoe_item.dart';
 import 'package:nike_shoe_store/presentation/theme/theme.dart';
 
 // Category Item Component
@@ -20,19 +21,19 @@ Widget categoryItem() => Card(
 
 // Product Item Component
 Widget defaultProductItem({
-  required String image,
-  required String state,
-  required String name,
-  required int price,
-}) => Card(
-      elevation: 4,
-      shadowColor: Colors.grey.withOpacity(0.2),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      surfaceTintColor: backgroundColor,
-      color: backgroundColor,
-      child: IntrinsicHeight(
+  required ShoeItemModel shoeData,
+}) =>
+    SizedBox(
+      height: 215,
+      width: 160,
+      child: Card(
+        elevation: 4,
+        shadowColor: Colors.grey.withOpacity(0.2),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        surfaceTintColor: backgroundColor,
+        color: backgroundColor,
         child: Stack(
           children: [
             Padding(
@@ -40,25 +41,33 @@ Widget defaultProductItem({
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.network(image, width: 100, height: 100),
+                  Transform.rotate(
+                      angle: -0.4,
+                      child: Image.network(shoeData.color.image,
+                          width: 120, height: 110)),
+                  if (shoeData.color.state != null)
+                    Text(
+                      shoeData.color.state!,
+                      style: productStateStyle,
+                    ),
+                  SizedBox(height: shoeData.color.state != null ? 2 : 16),
                   Text(
-                    state,
-                    textAlign: TextAlign.start,
-                    style: productStateStyle,
+                    shoeData.product.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: productNameStyle,
                   ),
                   const SizedBox(
                     height: 2,
                   ),
                   Text(
-                    name,
-                    textAlign: TextAlign.start,
-                    style: productNameStyle,
+                    shoeData.color.category,
+                    style: productCategoryStyle,
                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 3,
                   ),
                   Text(
-                    "\$$price",
+                    "\$${shoeData.color.currentPrice}",
                     textAlign: TextAlign.start,
                     style: productPriceStyle,
                   ),
@@ -77,8 +86,8 @@ Widget defaultProductItem({
               bottom: 0,
               right: 0,
               child: Container(
-                width: 50,
-                height: 50,
+                width: 35,
+                height: 35,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16),

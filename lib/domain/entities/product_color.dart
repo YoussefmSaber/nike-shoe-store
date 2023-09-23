@@ -6,7 +6,7 @@ class ProductColorEnitity extends Equatable {
   final String image;
   final int currentPrice;
   final double? oldPrice;
-  final String state;
+  final String? state;
   final String category;
 
   const ProductColorEnitity({

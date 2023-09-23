@@ -7,7 +7,7 @@ class ProductColorModel extends ProductColorEnitity {
       required super.image,
       required super.currentPrice,
       required super.oldPrice,
-      required super.state,
+      super.state,
       required super.category});
 
   factory ProductColorModel.fromJson(Map<String, dynamic> json) {

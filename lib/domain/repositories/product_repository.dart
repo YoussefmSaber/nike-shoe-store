@@ -1,8 +1,8 @@
-import 'package:nike_shoe_store/domain/entities/product.dart';
+import 'package:nike_shoe_store/domain/entities/shoe_item.dart';
 
 abstract class ProductRepository {
-  Future<List<ProductEntity>> getProducts();
-  Future<ProductEntity> getProduct(String id);
+  Future<List<ShoeItemEntity>> getProducts();
+  Future<ShoeItemEntity> getProduct(String id);
   void addProductToCart(String userId, String productId);
   void addProductToFavorite(String userId, String productId);
   void removeProductFromCart(String userId, String productId);
