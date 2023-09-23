@@ -39,10 +39,17 @@ class SupabaseApi {
     });
   }
 
-  Future<ProductModel> getShoe(String id) {
-    return supabase.from('shoes').select("*").eq("id", id).then((value) {
-      final data = value.data;
-      return ProductModel.fromJson(data);
+  Future<ShoeItemModel> getShoe(String id) {
+    return supabase.from('shoes_colors').select("*").eq("id", id).then((value) {
+      print(value);
+      final data = value as List;
+      final productColor = ProductColorModel.fromJson(data[0]);
+
+      return supabase.from('shoes').select().eq("id", productColor.shoeId).then((value) {
+        final data = value as List;
+        final product = ProductModel.fromJson(data[0]);
+        return ShoeItemModel(product: product, color: productColor);
+      });
     });
   }
 

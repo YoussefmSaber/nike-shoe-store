@@ -4,8 +4,8 @@ class ProductColorEnitity extends Equatable {
   final String id;
   final String shoeId;
   final String image;
-  final String currentPrice;
-  final String oldPrice;
+  final int currentPrice;
+  final double? oldPrice;
   final String state;
   final String category;
 

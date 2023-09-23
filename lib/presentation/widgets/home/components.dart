@@ -19,7 +19,12 @@ Widget categoryItem() => Card(
     ));
 
 // Product Item Component
-Widget defaultProductItem() => Card(
+Widget defaultProductItem({
+  required String image,
+  required String state,
+  required String name,
+  required int price,
+}) => Card(
       elevation: 4,
       shadowColor: Colors.grey.withOpacity(0.2),
       shape: RoundedRectangleBorder(
@@ -35,25 +40,25 @@ Widget defaultProductItem() => Card(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset("assets/images/shoe-item.png"),
-                  const Text(
-                    "BEST SELLER",
+                  Image.network(image, width: 100, height: 100),
+                  Text(
+                    state,
                     textAlign: TextAlign.start,
                     style: productStateStyle,
                   ),
                   const SizedBox(
                     height: 2,
                   ),
-                  const Text(
-                    "Nike Jordan",
+                  Text(
+                    name,
                     textAlign: TextAlign.start,
                     style: productNameStyle,
                   ),
                   const SizedBox(
                     height: 12,
                   ),
-                  const Text(
-                    "\$302.00",
+                  Text(
+                    "\$$price",
                     textAlign: TextAlign.start,
                     style: productPriceStyle,
                   ),
