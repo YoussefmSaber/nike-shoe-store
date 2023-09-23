@@ -57,6 +57,32 @@ class SupabaseApi {
     return shoeItems;
   }
 
+  Future<List<ShoeItemModel>> getSpecialShoes({required String state}) async {
+    final value =
+        await supabase.from('shoes_colors').select("*").eq("shoe_id", state);
+    final List<ProductColorModel> productColors =
+        value.map<ProductColorModel>((json) {
+      return ProductColorModel.fromJson(json as Map<String, dynamic>);
+    }).toList();
+
+    final List<ShoeItemModel> shoeItems = [];
+
+    await Future.forEach(productColors, (productColor) async {
+      final shoeResponse = await supabase
+          .from('shoes')
+          .select()
+          .eq("id", productColor.shoeId)
+          .single(); // Assuming there is a single matching shoe
+
+      final product = ProductModel.fromJson(shoeResponse);
+
+      final shoeItem = ShoeItemModel(product: product, color: productColor);
+      shoeItems.add(shoeItem);
+    });
+
+    return shoeItems;
+  }
+
   Future<ShoeItemModel> getShoe(String id) {
     return supabase.from('shoes_colors').select("*").eq("id", id).then((value) {
       print(value);

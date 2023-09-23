@@ -75,11 +75,15 @@ Widget defaultProductItem({
                         textAlign: TextAlign.start,
                         style: productPriceStyle,
                       ),
+                      const SizedBox(
+                        width: 4,
+                      ),
                       Text(
                           shoeData.color.oldPrice != null
                               ? "\$${shoeData.color.oldPrice}"
                               : "",
                           textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
                           style: productOldPriceStyle),
                     ],
                   ),

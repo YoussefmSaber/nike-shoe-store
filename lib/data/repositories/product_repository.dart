@@ -1,5 +1,6 @@
 import 'package:nike_shoe_store/data/data_sources/supabase_datasource.dart';
 import 'package:nike_shoe_store/data/models/model.dart';
+import 'package:nike_shoe_store/domain/entities/shoe_item.dart';
 import 'package:nike_shoe_store/domain/repositories/product_repository.dart';
 
 class ProductRepositoryImpl implements ProductRepository {
@@ -34,5 +35,10 @@ class ProductRepositoryImpl implements ProductRepository {
   @override
   void removeProductFromFavorite(String userId, String productId) {
     _supabaseApi.removeShoeFromFavorite(userId, productId);
+  }
+
+  @override
+  Future<List<ShoeItemEntity>> getSpecialShoes(String state) {
+    return _supabaseApi.getSpecialShoes(state: state);
   }
 }

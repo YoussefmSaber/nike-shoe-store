@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                         sectionName: "Popular Shoes", toSection: () {}),
                     // Product List Section
                     FutureBuilder(
-                        future: SupabaseApi().getAllShoes(),
+                        future: SupabaseApi().getSpecialShoes(state: "32541621-3ed6-4054-a54c-344f3bdb4910"),
                         builder: (_, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
@@ -84,17 +84,35 @@ class HomeScreen extends StatelessWidget {
                     // New Arrivals Section
                     sectionHeader(
                         sectionName: "New Arrivals", toSection: () {}),
-                    // SizedBox(
-                    //   height: 215,
-                    //   child: ListView.separated(
-                    //     scrollDirection: Axis.horizontal,
-                    //     itemBuilder: (_, index) => defaultProductItem(),
-                    //     separatorBuilder: (_, index) =>
-                    //         const SizedBox(width: 10),
-                    //     itemCount: 10,
-                    //     physics: const BouncingScrollPhysics(),
-                    //   ),
-                    // ),
+                    // FutureBuilder(
+                    //     future: SupabaseApi().getSpecialShoes(state: "NEW ARRIVAL"),
+                    //     builder: (_, snapshot) {
+                    //       if (snapshot.connectionState ==
+                    //           ConnectionState.waiting) {
+                    //         return const Center(
+                    //           child: CircularProgressIndicator(),
+                    //         );
+                    //       } else if (snapshot.hasError) {
+                    //         return Center(
+                    //           child: Text("Error: ${snapshot.error}"),
+                    //         );
+                    //       } else {
+                    //         return SizedBox(
+                    //           height: 215,
+                    //           child: ListView.separated(
+                    //             scrollDirection: Axis.horizontal,
+                    //             itemBuilder: (_, index) => defaultProductItem(
+                    //               shoeData: snapshot.data![index]
+                    //             ),
+                    //             separatorBuilder: (_, index) =>
+                    //                 const SizedBox(width: 10),
+                    //             itemCount: snapshot.data!.length,
+                    //             physics: const BouncingScrollPhysics(),
+                    //           ),
+                    //         );
+                    //       }
+                    //     }),
+                    
                     const SizedBox(
                       height: 10,
                     ),
