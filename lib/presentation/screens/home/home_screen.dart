@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nike_shoe_store/data/data_sources/supabase_datasource.dart';
-import 'package:nike_shoe_store/data/models/shoe_item.dart';
 import 'package:nike_shoe_store/presentation/widgets/home/components.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

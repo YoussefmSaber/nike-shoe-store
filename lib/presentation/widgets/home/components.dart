@@ -66,10 +66,22 @@ Widget defaultProductItem({
                   const SizedBox(
                     height: 3,
                   ),
-                  Text(
-                    "\$${shoeData.color.currentPrice}",
-                    textAlign: TextAlign.start,
-                    style: productPriceStyle,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        "\$${shoeData.color.currentPrice}",
+                        textAlign: TextAlign.start,
+                        style: productPriceStyle,
+                      ),
+                      Text(
+                          shoeData.color.oldPrice != null
+                              ? "\$${shoeData.color.oldPrice}"
+                              : "",
+                          textAlign: TextAlign.center,
+                          style: productOldPriceStyle),
+                    ],
                   ),
                 ],
               ),

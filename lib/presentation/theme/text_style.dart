@@ -15,6 +15,13 @@ const TextStyle productCategoryStyle = TextStyle(
     fontFamily: "raleway",
     fontWeight: FontWeight.w500);
 
+const TextStyle productOldPriceStyle = TextStyle(
+  fontSize: 10,
+  color: textColor2,
+  fontFamily: "poppins",
+  decoration: TextDecoration.lineThrough,
+);
+
 const TextStyle productPriceStyle = TextStyle(
   fontSize: 16,
   color: textColor,
