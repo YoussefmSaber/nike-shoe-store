@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nike_shoe_store/core/routes/router.dart';
-import 'package:nike_shoe_store/presentation/screens/cart/cart_screen.dart';
-import 'package:nike_shoe_store/presentation/screens/favorite/favorite_screen.dart';
-import 'package:nike_shoe_store/presentation/screens/notification/notification_screen.dart';
-import 'package:nike_shoe_store/presentation/screens/profile/profile_screen.dart';
 import 'package:nike_shoe_store/presentation/screens/screens.dart';
 import 'package:nike_shoe_store/presentation/theme/theme.dart';
 import 'package:nike_shoe_store/presentation/widgets/components.dart';

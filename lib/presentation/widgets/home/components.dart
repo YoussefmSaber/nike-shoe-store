@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nike_shoe_store/data/models/shoe_item.dart';
-import 'package:nike_shoe_store/presentation/screens/details/details_screen.dart';
 import 'package:nike_shoe_store/presentation/theme/theme.dart';
 
 // Category Item Component

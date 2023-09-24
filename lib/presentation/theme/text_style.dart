@@ -61,7 +61,7 @@ const TextStyle detailsProductNameStyle = TextStyle(
     fontWeight: FontWeight.w700);
 
 const TextStyle detailsProductPriceStyle = TextStyle(
-    fontSize: 26,
+    fontSize: 28,
     color: textColor,
     fontFamily: "poppins",
     fontWeight: FontWeight.w600);
@@ -115,3 +115,9 @@ const TextStyle saleStyle2 = TextStyle(
     fontFamily: "futura",
     letterSpacing: -1.5,
     fontWeight: FontWeight.w900);
+
+const TextStyle detailsAppBarTextStyle = TextStyle(
+    fontSize: 20,
+    color: textColor,
+    fontFamily: "raleway",
+    fontWeight: FontWeight.w600);
