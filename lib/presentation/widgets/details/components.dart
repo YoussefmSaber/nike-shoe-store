@@ -31,6 +31,7 @@ Widget detailsAppBar() => Row(
               elevation: 4,
               shadowColor: Colors.grey.withOpacity(0.2),
               shape: RoundedRectangleBorder(
+                side: BorderSide(color: primaryColor, width: 1),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Padding(
