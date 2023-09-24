@@ -83,7 +83,7 @@ class SupabaseApi {
     return shoeItems;
   }
 
-  Future<ShoeItemModel> getShoe(String id) {
+  Future<ShoeItemModel> getShoe({required String id}) {
     return supabase.from('shoes_colors').select("*").eq("id", id).then((value) {
       print(value);
       final data = value as List;

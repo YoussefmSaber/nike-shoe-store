@@ -19,7 +19,7 @@ class ProductRepositoryImpl implements ProductRepository {
 
   @override
   Future<ShoeItemModel> getProduct(String id) async {
-    return await _supabaseApi.getShoe(id.toString());
+    return await _supabaseApi.getShoe(id: id.toString());
   }
 
   @override
