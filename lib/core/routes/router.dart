@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nike_shoe_store/main.dart';
 import 'package:nike_shoe_store/presentation/screens/screens.dart';
-import 'package:nike_shoe_store/presentation/widgets/navigationbar/components.dart';
 
 class ApplicationRouter {
   late final GoRouter router = GoRouter(

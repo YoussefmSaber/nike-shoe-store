@@ -65,8 +65,14 @@ const TextStyle detailsProductPriceStyle = TextStyle(
     color: textColor,
     fontFamily: "poppins",
     fontWeight: FontWeight.w600,
-    letterSpacing: -.5
-    );
+    letterSpacing: -.5);
+
+const TextStyle buttonTextStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 18,
+    fontFamily: "poppins",
+    fontWeight: FontWeight.w500,
+    letterSpacing: -0.5);
 
 const TextStyle detailsProductCategoryStyle = TextStyle(
     fontSize: 16,
@@ -75,7 +81,7 @@ const TextStyle detailsProductCategoryStyle = TextStyle(
     fontWeight: FontWeight.w500);
 
 const TextStyle detailsProductDetailsStyle = TextStyle(
-    fontSize: 14,
+    fontSize: 16,
     color: textColor2,
     fontFamily: "poppins",
     fontWeight: FontWeight.w400);

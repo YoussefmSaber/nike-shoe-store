@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nike_shoe_store/data/models/shoe_item.dart';
 import 'package:nike_shoe_store/presentation/theme/theme.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 // Category Item Component
 Widget categoryItem() => Card(
@@ -51,10 +52,19 @@ Widget defaultProductItem({
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Transform.rotate(
-                        angle: -0.4,
-                        child: Image.network(shoeData.color.image,
-                            width: 120, height: 100)),
+                    RepaintBoundary(
+                      child: Transform.rotate(
+                              angle: -0.4,
+                              child: Image.network(shoeData.color.image,
+                                  width: 120, height: 100))
+                          .animate()
+                          .fade(duration: 600.ms)
+                          .slideY(
+                              curve: Curves.easeInOut,
+                              duration: 600.ms,
+                              begin: -1,
+                              end: 0),
+                    ),
                     if (shoeData.color.state != null)
                       Text(
                         shoeData.color.state!,

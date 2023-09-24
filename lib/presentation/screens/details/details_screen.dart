@@ -1,4 +1,6 @@
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nike_shoe_store/presentation/theme/theme.dart';
 import 'package:nike_shoe_store/presentation/widgets/components.dart';
@@ -12,21 +14,23 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String shoeImage =
         "https://winflhqfsycvddpcpdws.supabase.co/storage/v1/object/public/shoes_images/Mens%20Shoes/Jumpman%20MVP/Jumpman%20MVP%20(4).png?t=2023-09-24T12%3A16%3A50.654";
-
+    String desc =
+        "The Nike Blazer Mid’ 77 set fire to the basketball courts in the past. Today, it’s an icon in the sneaker world with its mid-top look and durable design—made for all ballers off the court. This special edition Blazer features printed and stitched details to help your style shine. Can you spot them?";
     return SafeArea(
       child: Scaffold(
         backgroundColor: backgroundColor2,
-        body: Column(
+        body: ListView(
           children: [
             Padding(
-                padding: const EdgeInsets.only(top: 8.0, left: 12, right: 8),
-                child: detailsAppBar()),
+              padding: const EdgeInsets.only(top: 8.0, left: 12, right: 8),
+              child: detailsAppBar(context),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   SizedBox(
                     width: (MediaQuery.of(context).size.width / 3) * 2,
                     child: const Text(
@@ -43,18 +47,7 @@ class DetailsScreen extends StatelessWidget {
                     style: detailsProductPriceStyle,
                   ),
                   SizedBox(height: 30),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 46.0),
-                      child: Transform.rotate(
-                        angle: -0.4,
-                        child: Image.network(
-                          shoeImage,
-                          width: MediaQuery.of(context).size.width / 5 * 3,
-                        ),
-                      ),
-                    ),
-                  ),
+                  productImage(context: context, shoeImage: shoeImage),
                   SizedBox(height: 5),
                   SvgPicture.asset(
                     "assets/svgs/slider.svg",
@@ -69,37 +62,33 @@ class DetailsScreen extends StatelessWidget {
               child: ListView.separated(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (_, index) => Card(
-                  color: backgroundColor,
-                  surfaceTintColor: backgroundColor,
-                  elevation: 4,
-                  shadowColor: Colors.grey.withOpacity(0.2),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 4.0,
-                      left: 4.0,
-                      bottom: 4.0,
-                      right: 12.0,
-                    ),
-                    child: Transform.rotate(
-                      angle: -0.4,
-                      child: Image.network(
-                        shoeImage,
-                        width: 55,
-                        height: 55,
-                      ),
-                    ),
-                  ),
-                ),
+                itemBuilder: (_, index) =>
+                    smallProductImage(shoeImage: shoeImage),
                 separatorBuilder: (_, index) => SizedBox(width: 10),
                 itemCount: 10,
               ),
             ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: ExpandableText(
+                desc,
+                expandText: "show more",
+                collapseText: "show less",
+                maxLines: 3,
+                style: detailsProductDetailsStyle,
+                expandOnTextTap: true,
+                collapseOnTextTap: true,
+                animationDuration: 400.ms,
+                linkColor: primaryColor,
+                animationCurve: Curves.easeOut,
+                animation: true,
+              ),
+            ),
           ],
         ),
+        bottomNavigationBar:
+            bottomDetailsMenu(buttonOnPressed: () {}, circleOnPressed: () {}),
       ),
     );
   }
