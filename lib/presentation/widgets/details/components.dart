@@ -57,8 +57,8 @@ Widget button({
             "assets/svgs/cart.svg",
             color: Colors.white,
           ),
-          SizedBox(width: 10),
-          Text("Add to cart", style: buttonTextStyle),
+          const SizedBox(width: 10),
+          const Text("Add to cart", style: buttonTextStyle),
         ],
       ),
     );

@@ -52,16 +52,16 @@ class DetailsScreen extends StatelessWidget {
                             "\$${snapshot.data!.color.currentPrice}",
                             style: detailsProductPriceStyle,
                           ),
-                          SizedBox(height: 30),
+                          const SizedBox(height: 30),
                           productImage(
                               context: context,
                               shoeImage: snapshot.data!.color.image),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           SvgPicture.asset(
                             "assets/svgs/slider.svg",
                             width: MediaQuery.of(context).size.width,
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                         ],
                       ),
                     ),
@@ -72,11 +72,11 @@ class DetailsScreen extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (_, index) => smallProductImage(
                             shoeImage: snapshot.data!.color.image),
-                        separatorBuilder: (_, index) => SizedBox(width: 10),
+                        separatorBuilder: (_, index) => const SizedBox(width: 10),
                         itemCount: 10,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: ExpandableText(
