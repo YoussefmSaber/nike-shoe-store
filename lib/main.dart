@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return SafeArea(
       child: Scaffold(
         backgroundColor: backgroundColor2,
-        body: screens[_bottomNavIndex],
+        body: screens[1],
         floatingActionButton: FloatingActionButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

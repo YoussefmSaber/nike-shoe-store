@@ -29,6 +29,32 @@ Widget detailsAppBar(context) => Row(
               onPressed: () {})
         ]);
 
+Widget favouriteAppBar(context) => Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      circleButton(
+          backgroundColor: backgroundColor,
+          haveShadow: true,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: textColor2,
+          )),
+      const Text(
+        "Favourite",
+        style: detailsAppBarTextStyle,
+      ),
+      circleButton(
+          backgroundColor: backgroundColor,
+          icon: SvgPicture.asset("assets/svgs/favorite.svg",
+              width: 24, height: 24, color: textColor2),
+          haveShadow: true,
+          onPressed: () {})
+    ]);
+
 Widget button({
   Function? onPressed,
   required String text,

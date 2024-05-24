@@ -12,7 +12,7 @@ class ApplicationRouter {
         name: 'home',
         path: '/',
         builder: (BuildContext context, state) =>
-            MyHomePage(title: 'Nike Shoe Store'),
+            const MyHomePage(title: 'Nike Shoe Store'),
       ),
       GoRoute(
         name: 'details',
